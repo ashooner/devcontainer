@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  drupal:
+   # image: webdevops/php-apache-dev:7.2
+   build:
+     context: ./drupal
+    
+   environment:
+      WEB_DOCUMENT_ROOT: /var/www/web
+      PHP_MEMORY_LIMIT: -1
+      DRUPAL_DATABASE_HOST: drupal-mysql
+      DRUPAL_DATABASE_PORT: 3306
+      DRUPAL_DATABASE_NAME: drupal
+      DRUPAL_DATABASE_USERNAME: drupal
+      DRUPAL_DATABASE_PASSWORD: drupal
+      # Generate a salt with: `php -r "echo bin2hex(random_bytes(25));"`
+      DRUPAL_HASH_SALT: db0de8a1556aa5348f87cfc950cd2c9641713d46e9412c8b05
+   ports:
+    - "80:80"
+   restart: always
+      # See 'Custom PHP codebase' for instructions for volumes.
+
+
+  mysql:
+    image: mysql:5.7
+    environment:
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_DATABASE: drupal
+        MYSQL_USER: drupal
+        MYSQL_PASSWORD: drupal
+    command: --max_allowed_packet=1G
+    ports:
+        - "3306:3306"
+
+
