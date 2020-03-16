@@ -1,0 +1,1 @@
+To import an existing database, place a file named drupal.sql into this directory.
