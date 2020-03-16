@@ -7,6 +7,7 @@ FROM webdevops/php-apache-dev:7.2
 #  > /usr/local/bin/drush && chmod +x /usr/local/bin/drush
 RUN composer global require drush/drush 
 ENV PATH="$(composer config -g home)/vendor/bin:$PATH"
+RUN rm -r /var/www/html
 
 #get git
 #RUN apt-get update && apt-get install -y git 
