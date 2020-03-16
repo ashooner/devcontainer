@@ -3,8 +3,8 @@ version: "3"
 services:
   drupal:
    volumes: 
-      - project-codebase:/var/www
+      - project-code:/var/www
       - ~/.ssh:/root/.ssh:delegated
 
 volumes:
-  project-codebase:
+  project-code:

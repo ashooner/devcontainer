@@ -4,7 +4,7 @@ services:
   drupal:
    # image: webdevops/php-apache-dev:7.2
    build:
-     context: ./drupal
+     context: ./docker/drupal
     
    environment:
       WEB_DOCUMENT_ROOT: /var/www/web
@@ -25,7 +25,7 @@ services:
   mysql:
     image: mysql:5.7
     volumes:
-      - ./mysql/drupal.sql:/docker-entrypoint-initdb.d/drupal.sql
+      - ./docker/ysql/drupal.sql:/docker-entrypoint-initdb.d/drupal.sql
     environment:
         MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
         MYSQL_DATABASE: drupal

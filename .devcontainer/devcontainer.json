@@ -1,13 +1,13 @@
 {
     "name": "UKD8 Devcontainer",
-    "dockerComposeFile": ["../docker/docker-compose.yml","docker-compose.extend.yml"],
+    "dockerComposeFile": ["../docker-compose.yml","docker-compose.extend.yml"],
     "remoteUser": "root",
     "runServices": [
       "drupal",
       "mysql",
     ],
     "service": "drupal",
-    "workspaceMount": "source=project-codebase,target=/var/www,type=volume",
+    "workspaceMount": "source=project-code,target=/var/www,type=volume",
     "workspaceFolder": "/var/www",
     "shutdownAction": "stopCompose",
     "postCreateCommand": "uname -a"
