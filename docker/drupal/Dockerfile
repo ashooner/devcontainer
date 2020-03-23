@@ -6,8 +6,9 @@ FROM webdevops/php-apache-dev:7.2
 #RUN curl -L --silent https://github.com/drush-ops/drush/releases/download/${DRUSH_VERSION}/drush.phar \
 #  > /usr/local/bin/drush && chmod +x /usr/local/bin/drush
 RUN composer global require drush/drush 
-ENV PATH="$(composer config -g home)/vendor/bin:$PATH"
 RUN rm -r /var/www/html
+
+RUN usermod -a -G root application
 
 #get git
 #RUN apt-get update && apt-get install -y git 
