@@ -9,7 +9,7 @@ services:
    environment:
       WEB_DOCUMENT_ROOT: /var/www/web
       PHP_MEMORY_LIMIT: -1
-      DRUPAL_DATABASE_HOST: drupal-mysql
+      DRUPAL_DATABASE_HOST: mysql
       DRUPAL_DATABASE_PORT: 3306
       DRUPAL_DATABASE_NAME: drupal
       DRUPAL_DATABASE_USERNAME: drupal
@@ -25,7 +25,7 @@ services:
   mysql:
     image: mysql:5.7
     volumes:
-      - ./docker/ysql/drupal.sql:/docker-entrypoint-initdb.d/drupal.sql
+      - ./docker/ysql/drupal.sql:/docker-entrypoint-initdb.d/
     environment:
         MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
         MYSQL_DATABASE: drupal
