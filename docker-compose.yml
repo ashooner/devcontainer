@@ -7,7 +7,7 @@ services:
      context: ./docker/drupal
     
    environment:
-      WEB_DOCUMENT_ROOT: /var/www/web
+      WEB_DOCUMENT_ROOT: /var/www/site/web
       PHP_MEMORY_LIMIT: -1
       DRUPAL_DATABASE_HOST: mysql
       DRUPAL_DATABASE_PORT: 3306
