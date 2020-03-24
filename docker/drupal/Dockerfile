@@ -3,10 +3,12 @@ FROM webdevops/php-apache-dev:7.2
 
 #Install drush
 #ENV DRUSH_VERSION 9.7.2
-#RUN curl -L --silent https://github.com/drush-ops/drush/releases/download/${DRUSH_VERSION}/drush.phar \
-#  > /usr/local/bin/drush && chmod +x /usr/local/bin/drush
+RUN curl -L --silent https://github.com/drush-ops/drush/releases/download/${DRUSH_VERSION}/drush.phar \
+  > /usr/local/bin/drush && chmod +x /usr/local/bin/drush
 RUN composer global require drush/drush 
-RUN rm -r /var/www/html
+RUN rm -r /var/www/html && \
+mkdir /var/www/src && \
+mkdir /var/www/site
 
 RUN usermod -a -G root application
 
